@@ -46,12 +46,16 @@ async function loadPersonal(){
  if(c && state.uid){
   const [p,a]=await Promise.all([
    c.from('advanced_progress').select('module_no,completed_at').eq('user_id',state.uid),
-   c.from('advanced_attempts').select('module_no,score,total,created_at,concept_results').eq('user_id',state.uid).order('created_at',{ascending:false})
+   c.from('advanced_attempts').select('client_attempt_id,module_no,score,total,created_at,concept_results').eq('user_id',state.uid).order('created_at',{ascending:false})
   ]);
-  if(p.error||a.error){note('O nível 2 ainda precisa da atualização SQL no Supabase. Veja README_V2.md.');return}
-  state.progress=p.data||[];state.attempts=[...pendingFor(state.uid).map(t=>({...t,pending:true})),...(a.data||[])];state.run=localState().run||0;
+  if(p.error||a.error){note('Não foi possível consultar as notas avançadas. Verifique as migrações SQL v2/v4 e sua conexão.');lastSyncError=friendlySyncError(a.error||p.error);paintPending();return}
+  state.progress=p.data||[];
+  const remote=a.data||[],seen=new Set(remote.map(row=>row.client_attempt_id).filter(Boolean));
+  state.attempts=[...pendingFor(state.uid).filter(t=>!seen.has(t.id)).map(t=>({...t,pending:true})),...remote];
+  state.run=localState().run||0;
  }else {const s=localState();state.progress=s.progress||[];state.attempts=s.attempts||[];state.run=s.run||0;}
  paintCards();
+ paintPending();
  if(c && state.uid && pendingFor(state.uid).length)syncPending();
 }
 function paintCards(){
@@ -139,49 +143,69 @@ function savePending(uid,attempt){
 function removePending(uid,id){
  try{localStorage.setItem(pendingKey(uid),JSON.stringify(pendingFor(uid).filter(x=>x.id!==id)))}catch(e){console.warn(e)}
 }
-const saving = new Set();
+let lastSyncError = '';
+function friendlySyncError(err){
+ const code=String(err?.code||err?.status||'').toUpperCase();
+ const msg=String(err?.message||'Erro não identificado');
+ if(code==='PGRST204'||msg.includes('client_attempt_id'))return 'O banco ainda não recebeu a atualização v4. Execute upgrade_v4.sql no Supabase.';
+ if(code==='23505')return ''; // Duplicata significa que a nota já chegou ao banco.
+ if(code==='42501'||code==='403')return 'Permissão negada pelo Supabase (RLS). Confira seu acesso à versão avançada e as políticas.';
+ if(code==='PGRST301'||code==='401')return 'Sessão expirada. Entre novamente e clique em Sincronizar notas pendentes.';
+ if(code==='42P01'||code==='PGRST205')return 'Tabela do nível avançado não encontrada. Confira upgrade_v2.sql.';
+ const short=msg.slice(0,135);
+ return `Erro ${code||'de rede'}: ${short}.`;
+}
+function paintPending(){
+ const pane=$('advancedSyncPanel');if(!pane)return;
+ const count=state.uid?pendingFor(state.uid).length:0;
+ pane.classList.toggle('hide',!count);
+ if(!count){lastSyncError='';return;}
+ $('advancedPendingCount').textContent=`⚠ ${count} ${count===1?'nota aguardando':'notas aguardando'} sincronização`;
+ $('advancedPendingReason').textContent=lastSyncError||'As notas continuam salvas neste dispositivo. Use o botão para enviar ao painel.';
+}
 function showSyncState(attempt,msg,ok){
  const status=$('advancedSaveState');
  if(status && $('advancedQuizResult').dataset.attemptId===attempt.id){
   status.textContent=msg;status.style.color=ok?'#17694c':'#9a3444';
  }
+ paintPending();
 }
+// Não fazemos um SELECT prévio com filtro JSON: essa consulta adicional
+// podia falhar e impedir que o INSERT fosse executado. A chave de idempotência
+// é garantida por um índice UNIQUE no PostgreSQL (upgrade_v4.sql).
+const saving = new Set();
 async function syncOne(uid,attempt){
  if(!uid || saving.has(attempt.id))return;
  const c=client();if(!c)return;
  saving.add(attempt.id);
  try{
-  // A sessão pode ter expirado enquanto a criança estava lendo e respondendo.
-  const {data:auth,error:authError}=await c.auth.getUser();
-  if(authError || auth?.user?.id!==uid)throw new Error('Sessão expirada');
-  // Identificador único no JSON evita duplicação quando uma requisição tem resposta demorada.
-  const {data:exists,error:checkError}=await c.from('advanced_attempts')
-   .select('id').eq('user_id',uid).contains('concept_results',[{attempt_id:attempt.id}]).limit(1);
-  if(checkError)throw checkError;
-  if(!exists?.length){
-   const {error}=await c.from('advanced_attempts').insert({
-    user_id:uid,module_no:attempt.module_no,score:attempt.score,total:attempt.total,
-    concept_results:attempt.concept_results
-   });
-   if(error)throw error;
-  }
+  const payload={user_id:uid,client_attempt_id:String(attempt.id),module_no:attempt.module_no,
+   score:attempt.score,total:attempt.total,concept_results:attempt.concept_results};
+  const {error}=await c.from('advanced_attempts').insert(payload);
+  if(error && String(error.code)!=='23505')throw error;
   removePending(uid,attempt.id);
+  lastSyncError='';
   if(state.uid===uid){
    const row=state.attempts.find(a=>a.id===attempt.id);
    if(row)row.pending=false;
-   showSyncState(attempt,'✓ Nota salva no painel dos responsáveis.',true);
+   showSyncState(attempt,'✓ Nota sincronizada! Ela já pode aparecer no painel dos responsáveis.',true);
    paintCards();
+   if(state.role==='guardian' && !$('dashboard').classList.contains('hide'))refreshDashboard();
   }
  }catch(err){
-  console.warn('Avaliação corrigida, mas não sincronizada:',err);
-  if(state.uid===uid)showSyncState(attempt,'⚠ Nota corrigida e guardada neste dispositivo, mas ainda NÃO enviada ao painel. Se necessário, saia e entre novamente e toque em “Sincronizar”.',false);
- }finally{saving.delete(attempt.id)}
+  lastSyncError=friendlySyncError(err);
+  console.warn('Nota pendente: não foi possível salvar no Supabase.',{code:err?.code,status:err?.status,message:err?.message,details:err?.details});
+  if(state.uid===uid)showSyncState(attempt,'⚠ Nota salva neste dispositivo, mas não no painel. '+lastSyncError,false);
+ }finally{saving.delete(attempt.id);if(state.uid===uid)paintPending();}
 }
 async function syncPending(){
  if(!state.uid || !client())return;
  const uid=state.uid;
- for(const a of pendingFor(uid))await syncOne(uid,a);
+ const btn=$('advancedRetryAll');if(btn)btn.disabled=true;
+ try{for(const a of pendingFor(uid))await syncOne(uid,a)}
+ finally{if(btn)btn.disabled=false;paintPending()}
 }
+
 function submitQuiz(evt){
  evt.preventDefault();if(state.busy || state.current===null)return;
  // Nunca consultar evt.currentTarget depois de um await: o navegador o limpa
@@ -200,7 +224,7 @@ function submitQuiz(evt){
  const attempt={id,module_no:module,score,total,created_at:now,
   concept_results:results.map(x=>({...x,attempt_id:id})),pending:Boolean(client()&&state.uid)};
  const cloud=Boolean(client()&&state.uid),uid=state.uid;
- if(cloud)savePending(uid,attempt);
+ if(cloud){savePending(uid,attempt);paintPending();}
  else {const s=localState();s.attempts=[attempt,...(s.attempts||[])];saveLocal(s)}
  state.attempts.unshift(attempt);paintCards();
  state.questions.forEach((q,i)=>{
@@ -272,7 +296,7 @@ window.labAdvancedRefresh=()=>checkEligibility();
 window.labAdvancedDashboardRefresh=refreshDashboard;
 window.addEventListener('lab-auth-changed',evt=>{
  const d=evt.detail||{};state.uid=d.id||null;state.role=d.role||null;state.progress=[];state.attempts=[];state.checked=false;state.allowed=false;
- paintGate();if(state.uid)checkEligibility();
+ paintGate();paintPending();if(state.uid)checkEligibility();
  if(!state.uid)$('advancedDashboard').classList.add('hide');
 });
 $('advancedBack').addEventListener('click',()=>showArea('advancedOverview'));
@@ -282,6 +306,7 @@ $('advancedStartQuiz').addEventListener('click',()=>openQuiz(state.active));
 $('advancedFinalQuiz').addEventListener('click',()=>openQuiz(0));
 $('advancedQuizForm').addEventListener('submit',submitQuiz);
 $('advancedDashboardReload').addEventListener('click',refreshDashboard);
+$('advancedRetryAll').addEventListener('click',syncPending);
 // Modo de uso local para quem ainda não configurou nuvem.
 if(window.LAB_CURRENT_USER_ID){state.uid=window.LAB_CURRENT_USER_ID;state.role=window.LAB_CURRENT_PROFILE?.role||null;checkEligibility();}
 else if(!(window.LAB_CONFIG?.supabaseUrl && window.LAB_CONFIG?.supabasePublishableKey))checkEligibility();
