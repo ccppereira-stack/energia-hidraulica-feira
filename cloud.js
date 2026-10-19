@@ -47,6 +47,7 @@
     currentUser = user;
     currentProfile = profile;
     window.LAB_CURRENT_USER_ID = user.id;
+    window.LAB_CURRENT_PROFILE = profile;
     await syncProgressFromCloud();
     el('accountLabel').textContent = `👤 ${profile.display_name} · ${profile.role === 'guardian' ? 'Responsável' : 'Aluno(a)'}`;
     navDashboard.classList.toggle('hide', profile.role !== 'guardian');
@@ -57,6 +58,7 @@
     resetQuizUI();
     go('home');
     sync();
+    window.dispatchEvent(new CustomEvent('lab-auth-changed',{detail:{id:user.id,role:profile.role}}));
   }
 
   async function syncProgressFromCloud() {
@@ -183,6 +185,7 @@
     el('metricAttempts').textContent = exams.filter(e=>ids.has(e.user_id)).length;
     el('dashboardUpdated').textContent = `Atualizado ${new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}`;
     el('dashboardStatus').textContent = participants.length ? '' : 'Ainda não há perfis cadastrados.';
+    if(window.labAdvancedDashboardRefresh)window.labAdvancedDashboardRefresh();
   }
   el('dashboardRefresh').addEventListener('click', refreshDashboard);
 
@@ -217,6 +220,8 @@
     if (client) await client.auth.signOut();
     currentUser = null; currentProfile = null;
     window.LAB_CURRENT_USER_ID = null;
+    window.LAB_CURRENT_PROFILE = null;
+    window.dispatchEvent(new CustomEvent('lab-auth-changed',{detail:{id:null,role:null}}));
     navDashboard.classList.add('hide');
     el('loginForm').reset();
     el('adultEmailField').classList.add('hide');
@@ -240,6 +245,7 @@
     client = window.supabase.createClient(cfg.supabaseUrl, cfg.supabasePublishableKey, {
       auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:false}
     });
+    window.LAB_CLOUD_CLIENT = client;
     try {
       const {data:{session},error} = await client.auth.getSession();
       if (error) throw error;
