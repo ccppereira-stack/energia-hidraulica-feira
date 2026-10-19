@@ -1,1 +1,526 @@
-window.LAB_ADVANCED_DATA = {"modules":[{"title":"A força da água: potencial, cinética e o ciclo","subtitle":"Por que a água parada no alto pode realizar trabalho? E por que a correnteza movimenta uma roda?","photo":null,"sections":[["O que é energia hidráulica?","Energia hidráulica é a energia associada à posição, à pressão e ao movimento da água. Ela não significa obrigatoriamente eletricidade. Uma roda-d'água pode movimentar um moinho diretamente. Já uma usina hidrelétrica utiliza a água para girar turbinas conectadas a geradores elétricos. **Energia hidrelétrica** é um modo de chamar a eletricidade produzida a partir dessa fonte, não uma forma física de energia diferente da elétrica."],["Potencial e cinética: compare duas situações","Água <strong>armazenada em um reservatório elevado</strong> possui energia potencial gravitacional em relação a um nível inferior. Água <strong>em movimento</strong> possui energia cinética. Quando a água desce, parte da energia potencial se transforma em movimento. Atenção: uma usina a fio d'água convencional normalmente também utiliza uma <strong>diferença de altura</strong>, e não apenas a velocidade natural do rio."],["De onde a água do alto recebe essa energia?","O Sol fornece energia para evaporar água de mares, lagos e rios. O vapor pode formar nuvens e precipitar em lugares elevados. A gravidade faz a água seguir rio abaixo. Esse <strong>ciclo da água</strong> ajuda a repor a água que alimenta os rios e reservatórios. A disponibilidade da fonte é renovável, mas varia conforme as chuvas e a conservação das bacias."],["Antes das hidrelétricas: moinhos","Rodas-d'água foram utilizadas por muitos séculos para moer grãos, serrar madeira e movimentar máquinas. O movimento da água gira a roda e as engrenagens executam trabalho diretamente. <strong>Não é preciso gerar eletricidade</strong>. Um exemplo histórico brasileiro para pesquisar é a antiga Usina de Marmelos, em Juiz de Fora (MG), que já pertence à fase da geração elétrica, inaugurada em 1889."],["Para pensar","Dois recipientes têm igual quantidade de água: um está sobre uma mesa e outro no alto de um prédio. A água mais alta tem maior energia potencial gravitacional em relação ao chão. Agora imagine a água do rio atingindo uma roda: ali o <strong>movimento</strong> transfere energia para a roda. Os dois efeitos fazem parte do assunto energia hidráulica."]],"sources":[["EPE — Fontes de energia","https://www.epe.gov.br/pt/abcdenergia/fontes-de-energia"]]},{"title":"Da água à tomada: turbina, gerador e rede","subtitle":"Conheça cada etapa, as perdas e a diferença entre potência e energia gerada.","photo":null,"sections":[["O caminho completo da eletricidade","<strong>1.</strong> A entrada de água tem grades que retêm galhos e objetos maiores. <strong>2.</strong> A água segue pelo canal ou conduto e passa pela turbina. <strong>3.</strong> A turbina gira e transmite movimento mecânico ao gerador. <strong>4.</strong> O gerador produz energia elétrica. <strong>5.</strong> Transformadores ajustam a tensão para o transporte eficiente pelas linhas de transmissão. <strong>6.</strong> Subestações e redes de distribuição levam a energia até os consumidores. A água segue seu caminho pelo rio após passar pela turbina."],["Turbina ≠ gerador ≠ transformador","A <strong>turbina</strong> recebe energia da água e gira. O <strong>gerador</strong> transforma o giro em eletricidade por indução eletromagnética. O <strong>transformador</strong> modifica a tensão da eletricidade — não cria energia nova. Nas maquetes, as torres representam a saída da energia da usina para a rede."],["Por que não conseguimos aproveitar 100%?","Atrito, turbulência, aquecimento e perdas mecânicas e elétricas fazem parte da energia disponível se dissipar. Isso não significa que a energia desapareça: ela se transforma em formas menos úteis para o objetivo da usina. Também nem toda a vazão do rio passa obrigatoriamente por turbinas."],["O que aumenta a potência?","Duas variáveis são muito importantes: <strong>vazão</strong> (quanto de água passa por segundo) e <strong>queda hidráulica</strong> (diferença de energia/altura entre a entrada e a saída). Mais vazão ou mais queda podem permitir maior potência, mantidas as outras condições. Uma usina com desnível pequeno pode ser enorme se o rio tiver muita água."],["Exemplo e atividade com a maquete","Em <strong>Itaipu</strong>, no rio Paraná, a água passa por grandes condutos e aciona turbinas e geradores. A usina tem 14.000 MW de capacidade instalada, dividida entre Brasil e Paraguai. <strong>Teste na maquete:</strong> aponte a água, a entrada, a turbina, o gerador, a torre, e explique que as luzes das casas só acendem de verdade pela água se o conjunto demonstrativo tiver um gerador conectado."]],"sources":[["Itaipu — Energia e geração","https://www.itaipu.gov.br/energia/geracao"],["DOE — Como funciona a geração hidráulica","https://www.energy.gov/cmei/water/how-hydropower-works"]]},{"title":"Acumulação: água guardada e vazão regulada","subtitle":"Por que um grande reservatório é estratégico, e quais são seus impactos?","photo":"assets/maquete-acumulacao.webp","sections":[["Qual é a característica essencial?","Uma hidrelétrica de <strong>acumulação</strong> possui reservatório com volume útil capaz de <strong>regularizar a vazão ao longo do tempo</strong>. Ela pode guardar parte da água que chega nas épocas mais chuvosas e liberá-la de forma planejada. Não é só o tamanho visual da barragem que determina a classificação: o importante é sua capacidade efetiva de regularizar água."],["Exemplo real: Sobradinho (Bahia)","No rio São Francisco, o reservatório de <strong>Sobradinho</strong> desempenha papel de regularização de vazões. Por isso, ajuda a produção de eletricidade e outros usos da água ao longo do rio. O rio segue por outras usinas até chegar a <strong>Xingó</strong>, que opera a fio d'água. Esse conjunto é ótimo para compreender a cooperação entre diferentes instalações."],["Outros exemplos para conhecer","<strong>Furnas</strong>, em Minas Gerais, e <strong>Tucuruí</strong>, no Pará, possuem reservatórios importantes. Fora do Brasil, a usina de <strong>Três Gargantas</strong>, na China, possui enorme capacidade instalada, de cerca de 22.500 MW. Evite concluir que toda usina com lago grande funciona como reservatório de regulação prolongada: há usinas com lago e pouca margem de armazenamento operacional."],["Benefícios e limitações","Reservatórios podem oferecer mais flexibilidade no uso da água e contribuir para a segurança do abastecimento elétrico. Porém a construção e operação podem inundar áreas, modificar habitats, afetar a migração de peixes e deslocar comunidades. Alguns reservatórios também liberam gases de efeito estufa, como metano. <strong>Renovável não significa impacto zero.</strong> Existem exigências de segurança e regras para usos múltiplos da água."],["Observe a maquete do grupo","Na maquete de acumulação, identifique o reservatório elevado, o barramento, a estrutura por onde a água desce, as torres e as casas. Explique ao visitante que a água no alto possui energia potencial. Não é preciso dizer que toda a água armazenada passa pela turbina ao mesmo tempo; o controle da liberação permite ajustar a operação."]],"sources":[["ANA — Sobradinho e regularização do São Francisco","https://www.gov.br/ana/pt-br/assuntos/noticias-e-eventos/noticias/com-maior-reservatorio-do-nordeste-hidreletrica-de-sobradinho-ba-volta-a-registrar-100-de-armazenamento-pela-primeira-vez-desde-2009"]]},{"title":"Fio d'água: usar a vazão e o desnível","subtitle":"Uma usina pode ter barragem e ainda assim operar a fio d’água.","photo":"assets/maquete-fio-dagua.webp","sections":[["O ponto principal é a regularização","Usinas <strong>a fio d'água</strong> têm pequena capacidade de armazenar água para regular sua produção por muitos dias ou meses. Por isso, aproveitam mais diretamente a vazão que chega pelo rio. Podem ter <strong>barragem, reservatório, entrada de água, canal, turbinas e geradores</strong>. Barragem baixa não é condição obrigatória."],["O que acontece na seca?","Se chega menos água ao longo de uma estação seca, a produção pode diminuir bastante. Isso ocorre em <strong>Belo Monte</strong>, no rio Xingu (Pará), cuja geração varia conforme a vazão. <strong>Jirau</strong> e <strong>Santo Antônio</strong>, no rio Madeira (Rondônia), são outros exemplos brasileiros conhecidos."],["Fio d’água não é turbina hidrocinética","A hidrelétrica convencional a fio d'água utiliza uma <strong>queda hidráulica</strong> entre entrada e saída para movimentar a turbina. A turbina <strong>hidrocinética</strong> é instalada diretamente na correnteza e aproveita a velocidade da água sem exigir essa queda. Uma coisa não é sinônimo da outra."],["Um exemplo de trabalho em equipe: São Francisco","<strong>Sobradinho</strong>, com armazenamento para regularização, fica rio acima. Sua operação contribui para controlar a vazão que chega aos aproveitamentos rio abaixo, incluindo <strong>Xingó</strong>, operada a fio d'água. Há outras usinas entre as duas. Mesmo Xingó tendo reservatório, o que determina sua classificação é a falta de grande regulação prolongada."],["Impactos: não generalize","Em alguns projetos o alagamento pode ser menor do que em grandes reservatórios de acumulação. Porém continuam existindo efeitos sobre peixes, comunidades, sedimentos e trechos do rio com vazão reduzida. O caso da <strong>Volta Grande do Xingu</strong>, associado a Belo Monte, mostra por que a avaliação ambiental precisa considerar mais do que o tamanho do lago. Usina a fio d’água também pode gerar milhares de MW."]],"sources":[["ANA — Xingó, fio d’água com reservatório","https://www.gov.br/ana/pt-br/assuntos/noticias-e-eventos/noticias/reservatorio-de-xingo-tera-reducao-da-liberacao-de-agua-para-700m3-s"]]},{"title":"Outras soluções: reversíveis e hidrocinéticas","subtitle":"Armazenar energia com água, aproveitar a correnteza e distinguir fontes oceânicas.","photo":null,"sections":[["Reversível: a bateria de água","Uma hidrelétrica <strong>reversível</strong> possui um reservatório alto e outro baixo. Quando há eletricidade disponível, bombas elevam a água. Mais tarde a água desce, passa pela turbina e gera eletricidade. A reversível <strong>não cria energia extra</strong>: armazena energia já gerada em outra parte do sistema, com perdas entre bombeamento e recuperação."],["Exemplos reais pelo mundo","<strong>Fengning</strong>, na China, é uma grande hidrelétrica reversível que apoia a integração de geração eólica e solar. <strong>Cruachan</strong>, na Escócia, trabalha com eletricidade da rede e pode ajudar a lidar com a variação da produção eólica. <strong>Nant de Drance</strong>, na Suíça, é outra instalação reversível em operação. A eletricidade usada no bombeamento vem da <strong>mistura de fontes conectadas à rede</strong>, e não é possível afirmar que cada litro de água foi bombeado por uma fonte específica."],["Por que gastar energia para bombear?","Se a usina gastar 100 unidades de eletricidade para bombear, poderá devolver, por exemplo, cerca de 80 unidades, dependendo de sua eficiência. A vantagem é <strong>ter eletricidade disponível no momento em que ela faz mais falta</strong>. Isso ajuda sistemas com maior produção solar durante o dia e produção eólica variável."],["Hidrocinética: a turbina na correnteza","Turbinas hidrocinéticas aproveitam diretamente a velocidade da água de um rio. Um exemplo real é o sistema <strong>RivGen</strong>, utilizado no rio Kvichak, na comunidade de Igiugig (Alasca, Estados Unidos), para ajudar no fornecimento elétrico local. No Brasil, ainda é uma tecnologia de desenvolvimento e demonstrações, sem participação expressiva na matriz elétrica."],["E as ondas e as marés?","Ambas também aproveitam energia associada à água, mas o setor energético brasileiro as coloca em outra categoria: <strong>energia oceânica</strong>. A energia das ondas é chamada ondomotriz; a das marés, maremotriz. Elas devem ser citadas como curiosidades, sem deslocar o foco do trabalho, que é a fonte hidráulica dos rios."]],"sources":[["Nant de Drance — usina reversível","https://www.nant-de-drance.ch/en/the-power-plant"],["Tethys/PNNL — Turbina RivGen em Igiugig","https://tethys.pnnl.gov/project-sites/rivgen-power-system"]]}],"bank":[[{"stems":["Qual frase define melhor energia hidráulica?","Quando falamos em energia hidráulica, o que podemos incluir?","Uma roda-d’água e uma hidrelétrica têm qual fonte em comum?"],"options":["Energia associada à água que pode realizar trabalho.","Apenas eletricidade gerada em usinas.","Qualquer energia produzida por carvão.","Somente ondas oceânicas."],"answer":0,"why":"Ela pode produzir movimento diretamente ou ser convertida em eletricidade."},{"stems":["Uma caixa d’água no alto, com água parada, possui principalmente que tipo de energia?","Qual energia está associada à posição elevada da água?","Por que um reservatório elevado pode mover uma turbina mesmo com a água inicialmente parada?"],"options":["Energia nuclear.","Energia potencial gravitacional.","Energia química de combustíveis.","Somente energia luminosa."],"answer":1,"why":"A altura permite que a gravidade realize trabalho quando a água desce."},{"stems":["A correnteza que gira uma roda-d’água demonstra qual energia?","O que a água de um rio em movimento possui?","A água que flui e movimenta um moinho fornece diretamente qual energia?"],"options":["Energia cinética.","Energia potencial elástica do fio.","Energia elétrica pronta para consumo.","Energia nuclear."],"answer":0,"why":"Energia cinética está associada ao movimento da água."},{"stems":["Como o Sol participa da reposição da água dos rios?","Qual é a função da energia solar no ciclo da água?","Por que mencionar o Sol ao explicar a origem da energia hidráulica dos rios?"],"options":["O Sol muda a gravidade conforme a estação.","O Sol fornece energia para evaporação da água.","O Sol transporta água encanada até a usina.","O Sol impede que chova em áreas altas."],"answer":1,"why":"A evaporação favorecida pelo Sol integra o ciclo da água; a gravidade a faz escoar."},{"stems":["Uma roda-d’água precisa gerar eletricidade para mover um moinho?","O que torna um moinho de roda-d’água diferente de uma usina hidrelétrica?","Como a água pode ser utilizada sem passar por um gerador?"],"options":["Ela faz girar engrenagens e máquinas diretamente.","Ela sempre precisa de uma tomada.","Ela transforma água em diesel.","Ela não consegue movimentar nada sem luz solar direta."],"answer":0,"why":"Roda e engrenagens podem trabalhar diretamente com energia mecânica."}],[{"stems":["Qual é a função da turbina na usina?","Que equipamento recebe energia da água e começa a girar?","A água que entra na casa de força faz girar primeiro qual peça?"],"options":["O transformador.","A turbina.","A rede de distribuição.","A lâmpada."],"answer":1,"why":"A turbina transforma energia da água em rotação mecânica."},{"stems":["O que faz o gerador elétrico?","Qual máquina converte a rotação da turbina em eletricidade?","Depois da turbina, qual equipamento produz energia elétrica?"],"options":["O vertedouro.","A torre.","O gerador.","A barragem."],"answer":2,"why":"O gerador converte energia mecânica em energia elétrica."},{"stems":["Para que serve o transformador elétrico?","O que acontece com a tensão no transformador?","Qual equipamento ajuda a ajustar a tensão para transmitir energia?"],"options":["Aumenta ou diminui a tensão elétrica.","Armazena a água das chuvas.","Produz energia gratuitamente.","Faz o rio correr para cima."],"answer":0,"why":"Transformadores ajustam a tensão; não criam energia."},{"stems":["Depois das linhas de transmissão, como a eletricidade chega às casas?","Entre transmissão e a tomada normalmente existe qual etapa?","Qual etapa atende bairros e ruas após o transporte em alta tensão?"],"options":["O oceano.","A rede de distribuição elétrica.","A água retorna à turbina por mágica.","Uma segunda barragem doméstica."],"answer":1,"why":"Subestações e redes de distribuição completam a entrega de energia aos consumidores."},{"stems":["Qual combinação ajuda a determinar a potência de uma hidrelétrica?","Se aumentarmos a vazão ou a queda hidráulica, o que pode acontecer?","Por que um rio de muita água pode sustentar uma grande hidrelétrica mesmo com queda moderada?"],"options":["Somente o número de casas na maquete.","Somente a cor da água.","Vazão e desnível hidráulico disponível.","Quantidade de árvores na cidade."],"answer":2,"why":"A potência hidráulica depende, principalmente, da vazão e da queda disponível."}],[{"stems":["O que define uma usina de acumulação?","O que diferencia um reservatório de regularização?","Que característica torna uma usina adequada para acumular água por períodos prolongados?"],"options":["Sua capacidade de armazenar água para regularizar vazões.","Ter necessariamente 100 turbinas.","Ficar sempre perto do mar.","Jamais possuir vertedouro."],"answer":0,"why":"O principal é o volume útil disponível para regularizar o fornecimento de água."},{"stems":["Qual usina do São Francisco possui importante reservatório de regularização?","Onde existe um exemplo brasileiro claro de armazenamento para regular vazão?","Qual instalação rio acima ajuda a regularizar água para outras usinas do São Francisco?"],"options":["Belo Monte.","Sobradinho.","Cruachan.","RivGen."],"answer":1,"why":"Sobradinho, na Bahia, ajuda a regularizar vazões na bacia do rio São Francisco."},{"stems":["Qual é uma vantagem de um reservatório com volume útil?","Como o armazenamento pode ajudar em parte do período seco?","Por que a operação de uma usina de acumulação é mais flexível?"],"options":["Porque pode liberar água armazenada quando necessário, respeitando regras.","Porque nunca depende das chuvas.","Porque cria água sem limite.","Porque elimina qualquer risco ambiental."],"answer":0,"why":"O reservatório permite transferir parte do uso da água entre diferentes momentos."},{"stems":["Qual impacto pode surgir na construção de um reservatório?","Por que reservatórios exigem planejamento social e ambiental?","O que pode acontecer com áreas próximas ao rio após o barramento?"],"options":["Alagamento e alteração de habitats e comunidades.","Desaparecimento da gravidade.","Impossibilidade absoluta de gerar energia.","Resfriamento de todas as cidades do país."],"answer":0,"why":"O lago pode modificar ecossistemas e afetar pessoas, exigindo avaliação."},{"stems":["Ter um lago grande prova que a usina consegue guardar água por muitos meses?","Qual cuidado usar ao classificar hidrelétricas por seu reservatório?","Barragem alta é suficiente para afirmar que uma usina é de acumulação?"],"options":["Sim, qualquer lago funciona como armazenamento plurianual.","Não, importa a capacidade efetiva de regularizar vazão.","Sim, mesmo sem volume útil.","Não existem reservatórios em usinas a fio d’água."],"answer":1,"why":"A diferença de classificação é a capacidade de regularização, não só a aparência."}],[{"stems":["O que caracteriza uma usina a fio d’água?","Qual é o limite principal de uma instalação a fio d’água?","Por que uma usina a fio d’água segue mais de perto a vazão do rio?"],"options":["Porque opera sem gerador.","Porque tem pouca capacidade de regularizar vazão por períodos longos.","Porque só funciona com marés.","Porque não possui turbinas."],"answer":1,"why":"A capacidade reduzida de armazenamento prolongado a torna mais dependente da vazão."},{"stems":["Uma usina a fio d’água pode possuir barragem?","Qual frase é verdadeira sobre as usinas a fio d’água?","A existência de reservatório elimina a classificação a fio d’água?"],"options":["Não, é proibido barramento.","Sim, pode ter barragem e reservatório com pouca regularização.","Ela não pode ter entradas de água.","Ela funciona exclusivamente com energia eólica."],"answer":1,"why":"Pode existir barragem; é a capacidade de armazenar por longo tempo que importa."},{"stems":["Qual usina brasileira no rio Xingu funciona a fio d’água?","Qual exemplo brasileiro tem geração muito variável entre cheia e seca do rio Xingu?","Que usina a fio d’água fica no Pará e está entre as maiores do Brasil?"],"options":["Sobradinho.","Furnas.","Belo Monte.","Cruachan."],"answer":2,"why":"Belo Monte opera a fio d’água e acompanha a forte variação de vazão do Xingu."},{"stems":["Como Sobradinho ajuda Xingó?","Qual relação existe entre Sobradinho e Xingó?","Por que uma usina a fio d’água pode se beneficiar de outra rio acima?"],"options":["Sobradinho ajuda a regularizar vazões que seguem rio abaixo.","Xingó bombeia água diretamente até Sobradinho continuamente.","Xingó não recebe água de rios.","A eletricidade viaja na água do rio."],"answer":0,"why":"A operação dos reservatórios rio acima influencia as condições dos aproveitamentos abaixo."},{"stems":["Qual afirmação é correta sobre impactos de fio d’água?","Ter reservatório pequeno significa impacto ambiental zero?","Por que o licenciamento ambiental é importante mesmo em fio d’água?"],"options":["Não causa impacto em peixes ou pessoas.","Pode alterar habitats, vazão e comunidades mesmo sem lago enorme.","Nunca desvia água de nenhum trecho.","As usinas a fio d’água sempre produzem pouca eletricidade."],"answer":1,"why":"O impacto depende do projeto e das condições locais, não só do tamanho do lago."}],[{"stems":["O que uma hidrelétrica reversível faz ao armazenar energia?","Como a reversível transforma eletricidade em energia potencial?","O que acontece na etapa de bombeamento da usina reversível?"],"options":["Bombeia água para um reservatório mais alto usando eletricidade.","Transforma água em petróleo.","Duplica energia elétrica sem perdas.","Faz as ondas do mar desaparecerem."],"answer":0,"why":"A bomba eleva a água, armazenando energia potencial gravitacional."},{"stems":["Uma usina reversível devolve mais eletricidade do que usa para bombear?","Por que uma reversível não é uma fonte gratuita de energia?","Se uma reversível usou 100 unidades para bombear, ela devolve em geral..."],"options":["Mais de 100 unidades sem nenhuma fonte adicional.","Exatamente 100 unidades sempre.","Menos de 100 unidades por causa das perdas.","Zero energia em qualquer situação."],"answer":2,"why":"Atrito e outras perdas impedem recuperar toda a energia elétrica utilizada."},{"stems":["Qual é um exemplo real de hidrelétrica reversível?","Qual instalação chinesa ajuda a integrar fontes solar e eólica?","Onde existe uma grande usina reversível na China?"],"options":["Igiugig/RivGen.","Fengning.","Belo Monte.","Xingó."],"answer":1,"why":"Fengning, na China, é uma reversível importante para o equilíbrio do sistema."},{"stems":["Qual é a diferença da geração hidrocinética?","Como uma turbina hidrocinética obtém energia da água?","Por que hidrocinética não é o mesmo que fio d’água convencional?"],"options":["Usa diretamente a velocidade da correnteza sem exigir queda criada para a turbina.","Precisa sempre de um lago gigante de meses.","Usa apenas corrente elétrica dos cabos.","Transforma sol em vento."],"answer":0,"why":"A hidrocinética extrai energia cinética diretamente do rio."},{"stems":["Como a EPE classifica a energia aproveitada das ondas e marés?","Ondomotriz e maremotriz são formas de qual categoria no setor energético brasileiro?","Em qual grupo entram as fontes de ondas e marés nas classificações energéticas?"],"options":["Energia nuclear.","Energia oceânica.","Energia química de biomassa.","Energia geotérmica."],"answer":1,"why":"Ondas e marés fazem parte da categoria energia oceânica, separada da hidráulica dos rios."}]]};
+window.LAB_ADVANCED_DATA = {
+  "modules": [
+    {
+      "title": "A força da água: potencial, cinética e o ciclo",
+      "subtitle": "Por que a água parada no alto pode realizar trabalho? E por que a correnteza movimenta uma roda?",
+      "photo": null,
+      "sections": [
+        [
+          "O que é energia hidráulica?",
+          "Energia hidráulica é a energia associada à posição, à pressão e ao movimento da água. Ela não significa obrigatoriamente eletricidade. Uma roda-d'água pode movimentar um moinho diretamente. Já uma usina hidrelétrica utiliza a água para girar turbinas conectadas a geradores elétricos. **Energia hidrelétrica** é um modo de chamar a eletricidade produzida a partir dessa fonte, não uma forma física de energia diferente da elétrica."
+        ],
+        [
+          "Potencial e cinética: compare duas situações",
+          "Água <strong>armazenada em um reservatório elevado</strong> possui energia potencial gravitacional em relação a um nível inferior. Água <strong>em movimento</strong> possui energia cinética. Quando a água desce, parte da energia potencial se transforma em movimento. Atenção: uma usina a fio d'água convencional normalmente também utiliza uma <strong>diferença de altura</strong>, e não apenas a velocidade natural do rio."
+        ],
+        [
+          "De onde a água do alto recebe essa energia?",
+          "O Sol fornece energia para evaporar água de mares, lagos e rios. O vapor pode formar nuvens e precipitar em lugares elevados. A gravidade faz a água seguir rio abaixo. Esse <strong>ciclo da água</strong> ajuda a repor a água que alimenta os rios e reservatórios. A disponibilidade da fonte é renovável, mas varia conforme as chuvas e a conservação das bacias."
+        ],
+        [
+          "Antes das hidrelétricas: moinhos",
+          "Durante muitos séculos, rodas-d'água movimentaram moinhos de grãos e outras máquinas. A água gira a roda, e engrenagens transmitem esse movimento diretamente ao equipamento: **não é necessário gerar eletricidade**. Um exemplo que continua funcionando é o **Moinho das Hortências**, em Água Quente, Teresópolis (RJ): uma roda-d'água movimenta a moagem artesanal de milho para produzir fubá. **Já a Usina de Marmelos Zero**, inaugurada em **1889**, em Juiz de Fora (MG), é um marco posterior: ela **gerava eletricidade desde o início**, inclusive para a iluminação da cidade. Marmelos é um exemplo histórico de **usina hidrelétrica**, e não de moinho movido diretamente pela água."
+        ],
+        [
+          "Para pensar",
+          "Dois recipientes têm igual quantidade de água: um está sobre uma mesa e outro no alto de um prédio. A água mais alta tem maior energia potencial gravitacional em relação ao chão. Agora imagine a água do rio atingindo uma roda: ali o <strong>movimento</strong> transfere energia para a roda. Os dois efeitos fazem parte do assunto energia hidráulica."
+        ]
+      ],
+      "sources": [
+        [
+          "EPE — Fontes de energia",
+          "https://www.epe.gov.br/pt/abcdenergia/fontes-de-energia"
+        ],
+        [
+          "Prefeitura de Teresópolis — Moinho das Hortências",
+          "https://teresopolis.rj.gov.br/noticias/turismo/museu-do-colono-memoria-gastronomia-e-turismo-1568"
+        ],
+        [
+          "Memória da Eletricidade — Marmelos Zero (1889)",
+          "https://memoriadaeletricidade.com.br/acervo/31130/usina-hidreletrica-marmelos-zero"
+        ]
+      ]
+    },
+    {
+      "title": "Da água à tomada: turbina, gerador e rede",
+      "subtitle": "Conheça cada etapa, as perdas e a diferença entre potência e energia gerada.",
+      "photo": null,
+      "sections": [
+        [
+          "O caminho completo da eletricidade",
+          "<strong>1.</strong> A entrada de água tem grades que retêm galhos e objetos maiores. <strong>2.</strong> A água segue pelo canal ou conduto e passa pela turbina. <strong>3.</strong> A turbina gira e transmite movimento mecânico ao gerador. <strong>4.</strong> O gerador produz energia elétrica. <strong>5.</strong> Transformadores ajustam a tensão para o transporte eficiente pelas linhas de transmissão. <strong>6.</strong> Subestações e redes de distribuição levam a energia até os consumidores. A água segue seu caminho pelo rio após passar pela turbina."
+        ],
+        [
+          "E o vertedouro?",
+          "O **vertedouro** é uma estrutura que permite liberar água que não será usada nas turbinas, principalmente quando há excesso no reservatório ou quando é necessário controlar o nível da água. Ele ajuda na **segurança e operação da barragem**. A água que passa pelo vertedouro **não gera eletricidade** nesse trajeto. Atenção: vertedouro não é a mesma coisa que **conduto forçado**, que leva a água até a turbina."
+        ],
+        [
+          "Turbina ≠ gerador ≠ transformador",
+          "A <strong>turbina</strong> recebe energia da água e gira. O <strong>gerador</strong> transforma o giro em eletricidade por indução eletromagnética. O <strong>transformador</strong> modifica a tensão da eletricidade — não cria energia nova. Nas maquetes, as torres representam a saída da energia da usina para a rede."
+        ],
+        [
+          "Por que não conseguimos aproveitar 100%?",
+          "Atrito, turbulência, aquecimento e perdas mecânicas e elétricas fazem parte da energia disponível se dissipar. Isso não significa que a energia desapareça: ela se transforma em formas menos úteis para o objetivo da usina. Também nem toda a vazão do rio passa obrigatoriamente por turbinas."
+        ],
+        [
+          "O que aumenta a potência?",
+          "Duas variáveis são muito importantes: <strong>vazão</strong> (quanto de água passa por segundo) e <strong>queda hidráulica</strong> (diferença de energia/altura entre a entrada e a saída). Mais vazão ou mais queda podem permitir maior potência, mantidas as outras condições. Uma usina com desnível pequeno pode ser enorme se o rio tiver muita água."
+        ],
+        [
+          "Exemplo e atividade com a maquete",
+          "Em <strong>Itaipu</strong>, no rio Paraná, a água passa por grandes condutos e aciona turbinas e geradores. A usina tem 14.000 MW de capacidade instalada, dividida entre Brasil e Paraguai. <strong>Teste na maquete:</strong> aponte a água, a entrada, a turbina, o gerador, a torre, e explique que as luzes das casas só acendem de verdade pela água se o conjunto demonstrativo tiver um gerador conectado."
+        ]
+      ],
+      "sources": [
+        [
+          "Itaipu — Energia e geração",
+          "https://www.itaipu.gov.br/energia/geracao"
+        ],
+        [
+          "DOE — Como funciona a geração hidráulica",
+          "https://www.energy.gov/cmei/water/how-hydropower-works"
+        ]
+      ]
+    },
+    {
+      "title": "Acumulação: água guardada e vazão regulada",
+      "subtitle": "Por que um grande reservatório é estratégico, e quais são seus impactos?",
+      "photo": "assets/maquete-acumulacao.webp",
+      "sections": [
+        [
+          "Qual é a característica essencial?",
+          "Uma hidrelétrica de <strong>acumulação</strong> possui reservatório com volume útil capaz de <strong>regularizar a vazão ao longo do tempo</strong>. Ela pode guardar parte da água que chega nas épocas mais chuvosas e liberá-la de forma planejada. Não é só o tamanho visual da barragem que determina a classificação: o importante é sua capacidade efetiva de regularizar água."
+        ],
+        [
+          "Exemplo real: Sobradinho (Bahia)",
+          "No rio São Francisco, o reservatório de <strong>Sobradinho</strong> desempenha papel de regularização de vazões. Por isso, ajuda a produção de eletricidade e outros usos da água ao longo do rio. O rio segue por outras usinas até chegar a <strong>Xingó</strong>, que opera a fio d'água. Esse conjunto é ótimo para compreender a cooperação entre diferentes instalações."
+        ],
+        [
+          "Outros exemplos para conhecer",
+          "<strong>Furnas</strong>, em Minas Gerais, e <strong>Tucuruí</strong>, no Pará, possuem reservatórios importantes. Fora do Brasil, a usina de <strong>Três Gargantas</strong>, na China, possui enorme capacidade instalada, de cerca de 22.500 MW. Evite concluir que toda usina com lago grande funciona como reservatório de regulação prolongada: há usinas com lago e pouca margem de armazenamento operacional."
+        ],
+        [
+          "Benefícios e limitações",
+          "Reservatórios podem oferecer mais flexibilidade no uso da água e contribuir para a segurança do abastecimento elétrico. Porém a construção e operação podem inundar áreas, modificar habitats, afetar a migração de peixes e deslocar comunidades. Alguns reservatórios também liberam gases de efeito estufa, como metano. <strong>Renovável não significa impacto zero.</strong> Existem exigências de segurança e regras para usos múltiplos da água."
+        ],
+        [
+          "Observe a maquete do grupo",
+          "Na maquete de acumulação, identifique o reservatório elevado, a barragem, a estrutura por onde a água desce, as torres e as casas. Explique ao visitante que a água no alto possui energia potencial. Não é preciso dizer que toda a água armazenada passa pela turbina ao mesmo tempo; o controle da liberação permite ajustar a operação."
+        ]
+      ],
+      "sources": [
+        [
+          "ANA — Sobradinho e regularização do São Francisco",
+          "https://www.gov.br/ana/pt-br/assuntos/noticias-e-eventos/noticias/com-maior-reservatorio-do-nordeste-hidreletrica-de-sobradinho-ba-volta-a-registrar-100-de-armazenamento-pela-primeira-vez-desde-2009"
+        ]
+      ]
+    },
+    {
+      "title": "Fio d'água: usar a vazão e o desnível",
+      "subtitle": "Uma usina pode ter barragem e ainda assim operar a fio d’água.",
+      "photo": "assets/maquete-fio-dagua.webp",
+      "sections": [
+        [
+          "O ponto principal é a regularização",
+          "Usinas <strong>a fio d'água</strong> têm pequena capacidade de armazenar água para regular sua produção por muitos dias ou meses. Por isso, aproveitam mais diretamente a vazão que chega pelo rio. Podem ter <strong>barragem, reservatório, entrada de água, canal, turbinas e geradores</strong>. Barragem baixa não é condição obrigatória."
+        ],
+        [
+          "O que acontece na seca?",
+          "Se chega menos água ao longo de uma estação seca, a produção pode diminuir bastante. Isso ocorre em <strong>Belo Monte</strong>, no rio Xingu (Pará), cuja geração varia conforme a vazão. <strong>Jirau</strong> e <strong>Santo Antônio</strong>, no rio Madeira (Rondônia), são outros exemplos brasileiros conhecidos."
+        ],
+        [
+          "Fio d’água não é turbina hidrocinética",
+          "A hidrelétrica convencional a fio d'água utiliza uma <strong>queda hidráulica</strong> entre entrada e saída para movimentar a turbina. A turbina <strong>hidrocinética</strong> é instalada diretamente na correnteza e aproveita a velocidade da água sem exigir essa queda. Uma coisa não é sinônimo da outra."
+        ],
+        [
+          "Um exemplo de trabalho em equipe: rio São Francisco",
+          "<strong>Sobradinho</strong>, com armazenamento para regularização, fica rio acima. Sua operação contribui para controlar a vazão que chega aos aproveitamentos rio abaixo, incluindo <strong>Xingó</strong>, operada a fio d'água. Há outras usinas entre as duas. Mesmo Xingó tendo reservatório, o que determina sua classificação é a falta de grande regulação prolongada. **Não confunda os nomes:** **Xingó** é a hidrelétrica no rio **São Francisco**; **Xingu** é outro rio, no Pará, onde fica **Belo Monte**."
+        ],
+        [
+          "Impactos: não generalize",
+          "Em alguns projetos o alagamento pode ser menor do que em grandes reservatórios de acumulação. Porém continuam existindo efeitos sobre peixes, comunidades, sedimentos e trechos do rio com vazão reduzida. O caso da <strong>Volta Grande do Xingu</strong>, associado a Belo Monte, mostra por que a avaliação ambiental precisa considerar mais do que o tamanho do lago. Usina a fio d’água também pode gerar milhares de MW."
+        ]
+      ],
+      "sources": [
+        [
+          "ANA — Xingó, fio d’água com reservatório",
+          "https://www.gov.br/ana/pt-br/assuntos/noticias-e-eventos/noticias/reservatorio-de-xingo-tera-reducao-da-liberacao-de-agua-para-700m3-s"
+        ]
+      ]
+    },
+    {
+      "title": "Outras soluções: reversíveis e hidrocinéticas",
+      "subtitle": "Armazenar energia com água, aproveitar a correnteza e distinguir fontes oceânicas.",
+      "photo": null,
+      "sections": [
+        [
+          "Reversível: a bateria de água",
+          "Uma hidrelétrica <strong>reversível</strong> possui um reservatório alto e outro baixo. Quando há eletricidade disponível, bombas elevam a água. Mais tarde a água desce, passa pela turbina e gera eletricidade. A reversível <strong>não cria energia extra</strong>: armazena energia já gerada em outra parte do sistema, com perdas entre bombeamento e recuperação."
+        ],
+        [
+          "Exemplos reais pelo mundo",
+          "<strong>Fengning</strong>, na China, é uma grande hidrelétrica reversível que apoia a integração de geração eólica e solar. <strong>Cruachan</strong>, na Escócia, trabalha com eletricidade da rede e pode ajudar a lidar com a variação da produção eólica. <strong>Nant de Drance</strong>, na Suíça, é outra instalação reversível em operação. A eletricidade usada no bombeamento vem da <strong>mistura de fontes conectadas à rede</strong>, e não é possível afirmar que cada litro de água foi bombeado por uma fonte específica."
+        ],
+        [
+          "Por que gastar energia para bombear?",
+          "Se a usina gastar 100 unidades de eletricidade para bombear, poderá devolver, por exemplo, cerca de 80 unidades, dependendo de sua eficiência. A vantagem é <strong>ter eletricidade disponível no momento em que ela faz mais falta</strong>. Isso ajuda sistemas com maior produção solar durante o dia e produção eólica variável."
+        ],
+        [
+          "Hidrocinética: a turbina na correnteza",
+          "Turbinas hidrocinéticas aproveitam diretamente a velocidade da água de um rio. Um exemplo real é o sistema <strong>RivGen</strong>, utilizado no rio Kvichak, na comunidade de Igiugig (Alasca, Estados Unidos), para ajudar no fornecimento elétrico local. No Brasil, ainda é uma tecnologia de desenvolvimento e demonstrações, sem participação expressiva na matriz elétrica."
+        ],
+        [
+          "E as ondas e as marés?",
+          "Ambas também aproveitam energia associada à água, mas o setor energético brasileiro as coloca em outra categoria: <strong>energia oceânica</strong>. A energia das ondas é chamada ondomotriz; a das marés, maremotriz. Elas devem ser citadas como curiosidades, sem deslocar o foco do trabalho, que é a fonte hidráulica dos rios."
+        ]
+      ],
+      "sources": [
+        [
+          "Nant de Drance — usina reversível",
+          "https://www.nant-de-drance.ch/en/the-power-plant"
+        ],
+        [
+          "Tethys/PNNL — Turbina RivGen em Igiugig",
+          "https://tethys.pnnl.gov/project-sites/rivgen-power-system"
+        ]
+      ]
+    }
+  ],
+  "bank": [
+    [
+      {
+        "stems": [
+          "Qual afirmação define corretamente energia hidráulica?"
+        ],
+        "options": [
+          "É a energia associada à água que pode realizar trabalho mecânico ou gerar eletricidade.",
+          "É toda energia elétrica produzida por qualquer fonte.",
+          "É apenas a energia das ondas do mar.",
+          "É a energia que só existe quando a água está fervendo."
+        ],
+        "answer": 0,
+        "why": "A energia hidráulica pode ser usada para mover máquinas diretamente ou para produzir eletricidade."
+      },
+      {
+        "stems": [
+          "Por que a água parada numa caixa instalada no alto possui energia potencial gravitacional?"
+        ],
+        "options": [
+          "Porque pode descer pela ação da gravidade e realizar trabalho.",
+          "Porque já contém eletricidade pronta para consumo.",
+          "Porque está se movimentando rapidamente dentro da caixa.",
+          "Porque o ar em volta produz eletricidade."
+        ],
+        "answer": 0,
+        "why": "A energia potencial gravitacional depende da massa e da altura em relação a um nível inferior."
+      },
+      {
+        "stems": [
+          "Quando uma correnteza faz uma roda-d’água girar, qual forma de energia está sendo aproveitada diretamente?"
+        ],
+        "options": [
+          "A energia cinética da água em movimento.",
+          "A energia nuclear armazenada na água.",
+          "A energia elétrica presente no rio.",
+          "A energia química de um combustível."
+        ],
+        "answer": 0,
+        "why": "Energia cinética é a energia do movimento; a água transmite parte dela à roda."
+      },
+      {
+        "stems": [
+          "Qual é a participação do Sol no ciclo da água que abastece os rios?"
+        ],
+        "options": [
+          "Fornece energia que favorece a evaporação da água.",
+          "Puxa diretamente os rios para os oceanos.",
+          "Substitui a gravidade nas quedas-d’água.",
+          "Gera eletricidade dentro das nuvens."
+        ],
+        "answer": 0,
+        "why": "O Sol impulsiona a evaporação, enquanto a gravidade permite o escoamento da água."
+      },
+      {
+        "stems": [
+          "Como um moinho tradicional de roda-d’água pode moer milho sem usar eletricidade?"
+        ],
+        "options": [
+          "A roda transmite movimento a engrenagens e pedras de moagem.",
+          "O moinho precisa de um gerador elétrico para cada grão.",
+          "O movimento da água é transformado em petróleo.",
+          "A moagem depende sempre de painéis solares."
+        ],
+        "answer": 0,
+        "why": "A roda-d’água pode realizar trabalho mecânico diretamente; o Moinho das Hortências é um exemplo ativo."
+      }
+    ],
+    [
+      {
+        "stems": [
+          "Qual equipamento de uma hidrelétrica recebe energia da água e a transforma em movimento de rotação?"
+        ],
+        "options": [
+          "A turbina.",
+          "O gerador elétrico.",
+          "O transformador de tensão.",
+          "A linha de transmissão."
+        ],
+        "answer": 0,
+        "why": "A turbina gira com a energia da água; esse giro movimenta o gerador."
+      },
+      {
+        "stems": [
+          "Qual é a função do gerador elétrico ligado à turbina?"
+        ],
+        "options": [
+          "Converter a rotação mecânica em energia elétrica.",
+          "Armazenar a água por meses.",
+          "Liberar o excesso de água pelo vertedouro.",
+          "Aumentar o nível do rio por bombeamento."
+        ],
+        "answer": 0,
+        "why": "O gerador produz eletricidade a partir da rotação transmitida pela turbina."
+      },
+      {
+        "stems": [
+          "Qual é a principal função do transformador elétrico na saída da usina?"
+        ],
+        "options": [
+          "Ajustar a tensão da eletricidade para sua transmissão ou distribuição.",
+          "Converter água diretamente em eletricidade.",
+          "Armazenar energia em um reservatório de água.",
+          "Controlar a quantidade de chuva na região."
+        ],
+        "answer": 0,
+        "why": "Transformadores alteram a tensão elétrica, mas não geram energia nova."
+      },
+      {
+        "stems": [
+          "Para que serve o vertedouro de uma barragem?"
+        ],
+        "options": [
+          "Liberar água que não passa pelas turbinas, ajudando a controlar níveis e garantir segurança.",
+          "Produzir eletricidade por indução eletromagnética.",
+          "Substituir a turbina na casa de força.",
+          "Transportar a eletricidade por cabos até as cidades."
+        ],
+        "answer": 0,
+        "why": "O vertedouro descarrega água; diferentemente do conduto forçado, não a conduz para gerar eletricidade."
+      },
+      {
+        "stems": [
+          "Se a vazão de água pelas turbinas aumentar, mantendo a queda e a eficiência, o que tende a ocorrer com a potência gerada?"
+        ],
+        "options": [
+          "A potência tende a aumentar.",
+          "A potência fica sempre igual, qualquer que seja a vazão.",
+          "A água muda de cor e isso define a potência.",
+          "A usina deixa de precisar de um gerador elétrico."
+        ],
+        "answer": 0,
+        "why": "Nas hidrelétricas convencionais, potência depende principalmente de vazão, desnível e eficiência."
+      }
+    ],
+    [
+      {
+        "stems": [
+          "O que distingue uma hidrelétrica de acumulação?"
+        ],
+        "options": [
+          "Possuir armazenamento útil para regularizar a vazão por períodos prolongados.",
+          "Não possuir geradores elétricos.",
+          "Aproveitar exclusivamente as ondas do mar.",
+          "Funcionar obrigatoriamente sem barragem."
+        ],
+        "answer": 0,
+        "why": "Um reservatório de regularização permite liberar água armazenada em outros momentos."
+      },
+      {
+        "stems": [
+          "Qual usina brasileira é um exemplo de armazenamento e regularização de água no rio São Francisco?"
+        ],
+        "options": [
+          "Sobradinho.",
+          "Belo Monte.",
+          "Xingó.",
+          "Santo Antônio."
+        ],
+        "answer": 0,
+        "why": "O reservatório de Sobradinho armazena água e influencia as vazões a jusante."
+      },
+      {
+        "stems": [
+          "Qual vantagem o armazenamento de água pode oferecer numa época de poucas chuvas?"
+        ],
+        "options": [
+          "Permitir, dentro de limites operacionais, a liberação de parte da água guardada anteriormente.",
+          "Criar água nova independentemente das chuvas.",
+          "Manter qualquer produção de energia para sempre.",
+          "Dispensar totalmente cuidados com a vazão do rio."
+        ],
+        "answer": 0,
+        "why": "O reservatório dá flexibilidade, mas sua água disponível é limitada."
+      },
+      {
+        "stems": [
+          "Qual é um impacto possível da construção de um reservatório de acumulação?"
+        ],
+        "options": [
+          "Alagamento de áreas e mudanças nos habitats e nas comunidades locais.",
+          "A eliminação automática da poluição de todo o rio.",
+          "O desaparecimento da gravidade na região.",
+          "A transformação de toda a água do reservatório em combustível."
+        ],
+        "answer": 0,
+        "why": "Os impactos dependem do projeto e exigem avaliação ambiental e social."
+      },
+      {
+        "stems": [
+          "Por que o simples tamanho de um lago não determina se a usina é de acumulação?"
+        ],
+        "options": [
+          "Porque importa a capacidade útil de regularizar a vazão ao longo do tempo.",
+          "Porque nenhuma usina com lago pode gerar eletricidade.",
+          "Porque todas as barragens têm a mesma capacidade de armazenamento.",
+          "Porque as usinas a fio d’água nunca têm reservatório."
+        ],
+        "answer": 0,
+        "why": "A classificação considera a capacidade efetiva de armazenamento e regularização, não apenas a aparência do lago."
+      }
+    ],
+    [
+      {
+        "stems": [
+          "Qual é a principal característica de uma hidrelétrica a fio d’água?"
+        ],
+        "options": [
+          "Ter pouca capacidade de armazenar água para regularizar a geração por períodos prolongados.",
+          "Funcionar sem turbinas e sem gerador.",
+          "Gerar apenas usando ondas oceânicas.",
+          "Precisar de reservatório capaz de suprir meses de seca."
+        ],
+        "answer": 0,
+        "why": "Ela aproveita a vazão disponível no rio e normalmente possui regularização limitada."
+      },
+      {
+        "stems": [
+          "Uma hidrelétrica a fio d’água pode ter barragem?"
+        ],
+        "options": [
+          "Sim. Pode ter barragem e pequeno reservatório, mas com pouca regularização de longo prazo.",
+          "Não. Qualquer barragem a transforma automaticamente em usina reversível.",
+          "Não. A barragem impede obrigatoriamente a geração.",
+          "Sim, mas somente se ela aproveitar a água do mar."
+        ],
+        "answer": 0,
+        "why": "Ter barragem não impede a classificação a fio d’água; importa a capacidade de regularização."
+      },
+      {
+        "stems": [
+          "Qual hidrelétrica a fio d’água está instalada no rio Xingu, no Pará?"
+        ],
+        "options": [
+          "Belo Monte.",
+          "Sobradinho.",
+          "Furnas.",
+          "Xingó."
+        ],
+        "answer": 0,
+        "why": "Belo Monte fica no rio Xingu; Xingó fica no rio São Francisco."
+      },
+      {
+        "stems": [
+          "Como a usina de Sobradinho pode ajudar a operação de Xingó, mais abaixo no rio São Francisco?"
+        ],
+        "options": [
+          "Ao regularizar parte da vazão que segue rio abaixo.",
+          "Ao enviar eletricidade pelo próprio leito do rio.",
+          "Ao impedir permanentemente que a água passe para Xingó.",
+          "Ao transformar o São Francisco no rio Xingu."
+        ],
+        "answer": 0,
+        "why": "A água liberada por Sobradinho percorre o rio e influencia os aproveitamentos a jusante."
+      },
+      {
+        "stems": [
+          "Por que uma usina a fio d’água também precisa de avaliação ambiental?"
+        ],
+        "options": [
+          "Porque barragens, desvios e alterações de vazão podem afetar animais e comunidades.",
+          "Porque todas alagam obrigatoriamente a mesma área.",
+          "Porque não usam água para gerar eletricidade.",
+          "Porque apenas usinas com grandes lagos têm impactos."
+        ],
+        "answer": 0,
+        "why": "Mesmo com armazenamento reduzido, os impactos locais podem ser relevantes."
+      }
+    ],
+    [
+      {
+        "stems": [
+          "O que uma hidrelétrica reversível faz quando está armazenando energia?"
+        ],
+        "options": [
+          "Usa eletricidade para bombear água até um reservatório mais alto.",
+          "Cria energia sem consumir nada.",
+          "Gera carvão a partir da água.",
+          "Retira o oxigênio da água para acender lâmpadas."
+        ],
+        "answer": 0,
+        "why": "O bombeamento aumenta a energia potencial gravitacional da água."
+      },
+      {
+        "stems": [
+          "Se uma reversível usa 100 unidades de eletricidade para bombear, o que acontece quando essa água volta a gerar?"
+        ],
+        "options": [
+          "Ela devolve menos de 100 unidades porque há perdas no processo.",
+          "Ela devolve sempre 200 unidades.",
+          "Ela devolve exatamente 100 unidades, sem perdas.",
+          "Ela só pode produzir energia se o reservatório estiver vazio."
+        ],
+        "answer": 0,
+        "why": "Bombas, turbinas e geradores não têm eficiência de 100%."
+      },
+      {
+        "stems": [
+          "Qual é um exemplo real de hidrelétrica reversível utilizado para ajudar a equilibrar o sistema elétrico?"
+        ],
+        "options": [
+          "Fengning, na China.",
+          "Belo Monte, no rio Xingu.",
+          "Xingó, no rio São Francisco.",
+          "Moinho das Hortências, em Teresópolis."
+        ],
+        "answer": 0,
+        "why": "Fengning é um grande exemplo de armazenamento por bombeamento."
+      },
+      {
+        "stems": [
+          "O que diferencia uma turbina hidrocinética instalada num rio?"
+        ],
+        "options": [
+          "Ela extrai energia diretamente da velocidade da correnteza sem exigir uma queda hidráulica para a turbina.",
+          "Ela precisa de um reservatório de acumulação durante meses.",
+          "Ela movimenta apenas moinhos a vapor.",
+          "Ela funciona exclusivamente com água salgada."
+        ],
+        "answer": 0,
+        "why": "A hidrocinética se parece, em princípio, com uma turbina eólica submersa na correnteza."
+      },
+      {
+        "stems": [
+          "Na classificação do setor energético brasileiro, as usinas que aproveitam ondas e marés pertencem a qual grupo?"
+        ],
+        "options": [
+          "Energia oceânica.",
+          "Energia nuclear.",
+          "Energia da biomassa.",
+          "Energia geotérmica."
+        ],
+        "answer": 0,
+        "why": "A EPE distingue energia oceânica (ondas e marés) da hidráulica dos rios."
+      }
+    ]
+  ]
+};

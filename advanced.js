@@ -49,9 +49,10 @@ async function loadPersonal(){
    c.from('advanced_attempts').select('module_no,score,total,created_at,concept_results').eq('user_id',state.uid).order('created_at',{ascending:false})
   ]);
   if(p.error||a.error){note('O nível 2 ainda precisa da atualização SQL no Supabase. Veja README_V2.md.');return}
-  state.progress=p.data||[];state.attempts=a.data||[];state.run=localState().run||0;
+  state.progress=p.data||[];state.attempts=[...pendingFor(state.uid).map(t=>({...t,pending:true})),...(a.data||[])];state.run=localState().run||0;
  }else {const s=localState();state.progress=s.progress||[];state.attempts=s.attempts||[];state.run=s.run||0;}
  paintCards();
+ if(c && state.uid && pendingFor(state.uid).length)syncPending();
 }
 function paintCards(){
  const el=$('advancedCards');el.replaceChildren();
@@ -62,7 +63,9 @@ function paintCards(){
   card.addEventListener('click',()=>openModule(n));el.appendChild(card);
  });
  const final=bestFor(0),attempts=allAttemptsFor(0);
- $('advancedSummary').textContent=`Módulos marcados como estudados: ${state.progress.length}/5 · Avaliações por módulo: ${state.attempts.filter(a=>a.module_no>0).length} · Avaliação geral: ${attempts.length} tentativa(s), melhor ${showScore(final)}.`;
+ $('advancedSummary').textContent=`Módulos marcados como estudados: ${new Set(state.progress.map(p=>Number(p.module_no))).size}/5 · Avaliações por módulo: ${state.attempts.filter(a=>a.module_no>0).length} · Avaliação geral: ${attempts.length} tentativa(s).`;
+ $('advancedOverallScore').textContent=`Melhor nota da avaliação geral: ${showScore(final)}.`;
+ $('advancedFinalQuiz').disabled=new Set(state.progress.map(p=>Number(p.module_no))).size!==5;
 }
 function showArea(part){
  ['advancedOverview','advancedLesson','advancedQuiz'].forEach(id=>$(id).classList.toggle('hide',id!==part));
@@ -92,7 +95,7 @@ async function markStudied(){
 }
 function buildQuestion(source,variation){
  const indexes=shuffle([0,1,2,3]);
- return {q:source.stems[variation%3],opts:indexes.map(i=>source.options[i]),correct:indexes.indexOf(source.answer),why:source.why};
+ return {q:source.stems[variation%source.stems.length],opts:indexes.map(i=>source.options[i]),correct:indexes.indexOf(source.answer),why:source.why};
 }
 function buildSet(module){
  state.run+=1;const s=localState();s.run=state.run;saveLocal(s);
@@ -112,7 +115,7 @@ function openQuiz(module){
  if(module===0&&state.progress.length!==5){note('Conclua a leitura dos 5 módulos avançados antes da avaliação geral.');return}
  state.active=module;state.questions=buildSet(module);state.current=module;
  $('advancedQuizTitle').textContent=module===0?'Avaliação geral avançada · 15 questões':`Avaliação do módulo ${module} · 5 questões`;
- $('advancedQuizContext').textContent=module===0?'As questões são escolhidas entre os cinco módulos. Para atingir 80%, acerte ao menos 12 de 15.':'As perguntas variam entre três versões de cada conceito e as alternativas mudam de ordem. Para atingir 80%, acerte ao menos 4 de 5.';
+ $('advancedQuizContext').textContent=module===0?'As questões são escolhidas entre os cinco módulos. Para atingir 80%, acerte ao menos 12 de 15.':'Questões revisadas, em ordem aleatória e com alternativas embaralhadas. Para atingir 80%, acerte ao menos 4 de 5.';
  const form=$('advancedQuizForm');form.replaceChildren();
  state.questions.forEach((q,i)=>{
   const field=document.createElement('fieldset');field.className='question';
@@ -124,30 +127,107 @@ function openQuiz(module){
  const submit=document.createElement('button');submit.className='button';submit.type='submit';submit.id='advancedSubmit';submit.textContent='Corrigir avaliação ✓';form.appendChild(submit);
  $('advancedQuizResult').classList.add('hide');showArea('advancedQuiz');document.getElementById('advanced').scrollIntoView({behavior:'instant',block:'start'});
 }
-async function submitQuiz(evt){
- evt.preventDefault();if(state.busy)return;
- const selections=new FormData(evt.currentTarget), results=[];
- for(let i=0;i<state.questions.length;i++){
-  const value=selections.get(`adv${i}`);if(value===null){note('Responda todas as perguntas antes de corrigir.');return}
-  const q=state.questions[i],good=Number(value)===q.correct;
-  results.push({module:q.mod,concept:q.concept,correct:good});
+// Resultados são corrigidos imediatamente, antes de qualquer operação de rede.
+// Uma falha de conexão ou sessão expirada não faz a criança perder as respostas.
+function pendingKey(uid){return `${LOCAL_KEY}:pending:${uid}`;}
+function pendingFor(uid){try{return JSON.parse(localStorage.getItem(pendingKey(uid)))||[]}catch{return []}}
+function savePending(uid,attempt){
+ const pend=pendingFor(uid);
+ if(!pend.some(x=>x.id===attempt.id))pend.push(attempt);
+ try{localStorage.setItem(pendingKey(uid),JSON.stringify(pend))}catch(e){console.warn('Não foi possível guardar fila local',e)}
+}
+function removePending(uid,id){
+ try{localStorage.setItem(pendingKey(uid),JSON.stringify(pendingFor(uid).filter(x=>x.id!==id)))}catch(e){console.warn(e)}
+}
+const saving = new Set();
+function showSyncState(attempt,msg,ok){
+ const status=$('advancedSaveState');
+ if(status && $('advancedQuizResult').dataset.attemptId===attempt.id){
+  status.textContent=msg;status.style.color=ok?'#17694c':'#9a3444';
  }
- state.busy=true;$('advancedSubmit').disabled=true;
- const score=results.filter(r=>r.correct).length,total=results.length,now=new Date().toISOString();
- const attempt={module_no:state.current,score,total,created_at:now,concept_results:results};
- const c=client();
- if(c && state.uid){
-  const {error}=await c.from('advanced_attempts').insert({user_id:state.uid,module_no:attempt.module_no,score,total,concept_results:results});
-  if(error){state.busy=false;$('advancedSubmit').disabled=false;note('Não foi possível gravar esta avaliação online. Verifique a conexão e a atualização SQL. Nenhuma nota foi registrada.');return}
- }else {const s=localState();s.attempts=[attempt,...(s.attempts||[])];saveLocal(s)}
+}
+async function syncOne(uid,attempt){
+ if(!uid || saving.has(attempt.id))return;
+ const c=client();if(!c)return;
+ saving.add(attempt.id);
+ try{
+  // A sessão pode ter expirado enquanto a criança estava lendo e respondendo.
+  const {data:auth,error:authError}=await c.auth.getUser();
+  if(authError || auth?.user?.id!==uid)throw new Error('Sessão expirada');
+  // Identificador único no JSON evita duplicação quando uma requisição tem resposta demorada.
+  const {data:exists,error:checkError}=await c.from('advanced_attempts')
+   .select('id').eq('user_id',uid).contains('concept_results',[{attempt_id:attempt.id}]).limit(1);
+  if(checkError)throw checkError;
+  if(!exists?.length){
+   const {error}=await c.from('advanced_attempts').insert({
+    user_id:uid,module_no:attempt.module_no,score:attempt.score,total:attempt.total,
+    concept_results:attempt.concept_results
+   });
+   if(error)throw error;
+  }
+  removePending(uid,attempt.id);
+  if(state.uid===uid){
+   const row=state.attempts.find(a=>a.id===attempt.id);
+   if(row)row.pending=false;
+   showSyncState(attempt,'✓ Nota salva no painel dos responsáveis.',true);
+   paintCards();
+  }
+ }catch(err){
+  console.warn('Avaliação corrigida, mas não sincronizada:',err);
+  if(state.uid===uid)showSyncState(attempt,'⚠ Nota corrigida e guardada neste dispositivo, mas ainda NÃO enviada ao painel. Se necessário, saia e entre novamente e toque em “Sincronizar”.',false);
+ }finally{saving.delete(attempt.id)}
+}
+async function syncPending(){
+ if(!state.uid || !client())return;
+ const uid=state.uid;
+ for(const a of pendingFor(uid))await syncOne(uid,a);
+}
+function submitQuiz(evt){
+ evt.preventDefault();if(state.busy || state.current===null)return;
+ // Nunca consultar evt.currentTarget depois de um await: o navegador o limpa
+ // quando o evento termina. Esse era um dos motivos da correção não aparecer.
+ const formEl=evt.currentTarget;
+ const selections=new FormData(formEl),results=[];
+ for(let i=0;i<state.questions.length;i++){
+  const value=selections.get(`adv${i}`);
+  if(value===null){note('Responda todas as perguntas antes de corrigir.');return;}
+  const q=state.questions[i];results.push({module:q.mod,concept:q.concept,correct:Number(value)===q.correct});
+ }
+ state.busy=true;const btn=$('advancedSubmit');btn.disabled=true;
+ const score=results.filter(x=>x.correct).length,total=results.length,now=new Date().toISOString();
+ const module=state.current;
+ const id=(window.crypto?.randomUUID?.()||`${Date.now()}-${Math.random().toString(36).slice(2)}`);
+ const attempt={id,module_no:module,score,total,created_at:now,
+  concept_results:results.map(x=>({...x,attempt_id:id})),pending:Boolean(client()&&state.uid)};
+ const cloud=Boolean(client()&&state.uid),uid=state.uid;
+ if(cloud)savePending(uid,attempt);
+ else {const s=localState();s.attempts=[attempt,...(s.attempts||[])];saveLocal(s)}
  state.attempts.unshift(attempt);paintCards();
- state.questions.forEach((q,i)=>{const feedback=$(`advfeedback${i}`);feedback.className='feedback '+(results[i].correct?'':'bad');feedback.textContent=(results[i].correct?'✓ Acertou. ':'✕ Resposta correta: '+q.opts[q.correct]+'. ')+q.why;});
- evt.currentTarget.querySelectorAll('input').forEach(x=>x.disabled=true);
- const result=$('advancedQuizResult');result.classList.remove('hide');
- result.replaceChildren();const h=document.createElement('h2');h.textContent=`Resultado: ${score}/${total} (${pct(score,total)}%)`;const p=document.createElement('p');p.textContent=pct(score,total)>=80?'Aproveitamento de 80% ou mais! Você dominou os conceitos avaliados.':'Estude as explicações das respostas e tente uma nova versão para melhorar.';
- const footer=document.createElement('p');footer.textContent='Sua tentativa foi registrada e pode ser acompanhada pelos responsáveis. As próximas perguntas podem mudar.';
- const again=document.createElement('button');again.type='button';again.className='button secondary';again.textContent='Fazer uma nova versão';again.addEventListener('click',()=>openQuiz(state.current));
- result.append(h,p,footer,again);state.busy=false;note('');
+ state.questions.forEach((q,i)=>{
+  const feedback=$(`advfeedback${i}`);feedback.className='feedback '+(results[i].correct?'':'bad');
+  feedback.textContent=(results[i].correct?'✓ Acertou. ':'✕ Resposta correta: '+q.opts[q.correct]+'. ')+q.why;
+ });
+ formEl.querySelectorAll('input').forEach(x=>x.disabled=true);
+ const result=$('advancedQuizResult');result.classList.remove('hide');result.replaceChildren();
+ result.dataset.attemptId=id;
+ const h=document.createElement('h2');h.textContent=`Resultado: ${score}/${total} (${pct(score,total)}%)`;
+ const p=document.createElement('p');p.textContent=pct(score,total)>=80?'Aproveitamento de 80% ou mais! Você dominou os conceitos avaliados.':'Revise as explicações das respostas e tente novamente para melhorar.';
+ const footer=document.createElement('p');footer.className='small';footer.id='advancedSaveState';footer.setAttribute('role','status');
+ footer.textContent=cloud?'Salvando sua nota no painel…':'Nota salva somente neste navegador (modo local).';
+ const actions=document.createElement('div');actions.className='splitbuttons';
+ const again=document.createElement('button');again.type='button';again.className='button secondary';again.textContent='Refazer avaliação';again.addEventListener('click',()=>openQuiz(module));actions.appendChild(again);
+ const next=document.createElement('button');next.type='button';next.className='button';
+ if(module===0){next.textContent='← Voltar aos módulos';next.addEventListener('click',()=>showArea('advancedOverview'));}
+ else if(module<5){next.textContent=`Estudar módulo ${module+1} →`;next.addEventListener('click',()=>openModule(module+1));}
+ else {next.textContent='Ir para a avaliação geral →';next.addEventListener('click',()=>openQuiz(0));
+  if(new Set(state.progress.map(x=>Number(x.module_no))).size!==5){next.disabled=true;next.title='É necessário marcar os cinco módulos como estudados.';}}
+ actions.appendChild(next);
+ if(cloud){const retry=document.createElement('button');retry.type='button';retry.className='button secondary';retry.textContent='↻ Sincronizar nota';retry.addEventListener('click',()=>syncPending());actions.appendChild(retry);}
+ result.append(h,p,footer,actions);
+ state.busy=false;note('');
+ // Mostra nota e as ações imediatamente mesmo com Supabase lento ou desconectado.
+ result.scrollIntoView({behavior:'smooth',block:'center'});
+ if(cloud)syncOne(uid,attempt);
 }
 async function refreshDashboard(){
  const box=$('advancedDashboard');if(!box||state.role!=='guardian')return;
